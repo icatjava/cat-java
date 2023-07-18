@@ -18,7 +18,11 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Stream;
 
-
+/**
+ * Rest Api Error Handler.
+ *
+ * @author cat-feng
+ */
 @Slf4j
 @RestControllerAdvice
 public class RestErrorHandler {
@@ -43,12 +47,12 @@ public class RestErrorHandler {
             String message = ((ConstraintViolationException) e).getConstraintViolations().stream()
                     .map(ConstraintViolation::getMessage)
                     .reduce((a, b) -> a + "; " + b)
-                    .orElse("请求参数错误，参数校验不通过！");
+                    .orElse("request param error！");
             return Result.paramError(message);
         }
 
         log.error("[Exception Handler] exception stack trace: ", e);
-        return Result.systemError("请求处理异常，请稍后重试！");
+        return Result.systemError("request error！");
     }
 
     private String printStack(StackTraceElement[] stackTrace) {
@@ -69,7 +73,10 @@ public class RestErrorHandler {
     public Result<?> paramHandle(BindingResult bindingResult) {
         String message = Optional.of(bindingResult).map(BindingResult::getAllErrors)
                 .filter(errors -> !CollectionUtils.isEmpty(errors))
-                .map(errors -> errors.stream().map(ObjectError::getDefaultMessage).reduce((a, b) -> a + "; " + b).orElse("参数校验失败，请确认参数的正确性后重试！"))
+                .map(errors -> errors.stream().map(ObjectError::getDefaultMessage)
+                        .reduce((a, b) -> a + "; " + b)
+                        .orElse("request param error！")
+                )
                 .orElse(null);
         String className = Objects.nonNull(bindingResult.getTarget()) ? bindingResult.getTarget().getClass().getSimpleName() : Objects.toString(bindingResult.getTarget());
 

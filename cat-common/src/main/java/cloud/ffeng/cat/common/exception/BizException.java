@@ -17,8 +17,17 @@ import static cloud.ffeng.cat.common.constants.ResultStatusConstants.*;
  */
 @Getter
 public class BizException extends RuntimeException {
+    /**
+     * Status
+     */
     private final Integer status;
+    /**
+     * Code
+     */
     private final String code;
+    /**
+     * Trace id
+     */
     private final String traceId;
 
     /**

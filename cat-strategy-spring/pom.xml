@@ -10,6 +10,7 @@
     </parent>
 
     <artifactId>cat-strategy-spring</artifactId>
+    <name>Cat-Feng :: Strategy Spring</name>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
