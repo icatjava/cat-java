@@ -19,6 +19,7 @@
         <module>cat-common</module>
         <module>cat-error-handler</module>
         <module>cat-strategy-spring</module>
+        <module>cat-tracer</module>
     </modules>
 
     <properties>
@@ -31,7 +32,7 @@
         <dependencies>
             <dependency>
                 <groupId>cloud.ffeng</groupId>
-                <artifactId>feng-common</artifactId>
+                <artifactId>cat-common</artifactId>
                 <version>${project.parent.version}</version>
             </dependency>
         </dependencies>

@@ -1,7 +1,7 @@
 package cloud.ffeng.cat.common.result;
 
 import cloud.ffeng.cat.common.constants.ResultStatusConstants;
-import cloud.ffeng.cat.common.support.TraceContext;
+import cloud.ffeng.cat.common.support.TraceSupport;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -47,7 +47,7 @@ public class Result<T> implements Serializable {
         result.setMessage(message);
         result.setStatus(status);
         result.setCode(code);
-        result.setTraceId(TraceContext.getTraceId());
+        result.setTraceId(TraceSupport.getTraceId());
         result.setData(data);
         return result;
     }

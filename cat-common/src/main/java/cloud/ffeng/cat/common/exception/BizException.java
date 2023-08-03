@@ -3,7 +3,7 @@ package cloud.ffeng.cat.common.exception;
 
 import cloud.ffeng.cat.common.result.Result;
 import cloud.ffeng.cat.common.result.ResultStatus;
-import cloud.ffeng.cat.common.support.TraceContext;
+import cloud.ffeng.cat.common.support.TraceSupport;
 import lombok.Getter;
 
 import java.util.Objects;
@@ -42,7 +42,7 @@ public class BizException extends RuntimeException {
         super(message, cause);
         this.status = status;
         this.code = code;
-        this.traceId = TraceContext.getTraceId();
+        this.traceId = TraceSupport.getTraceId();
     }
 
     /**

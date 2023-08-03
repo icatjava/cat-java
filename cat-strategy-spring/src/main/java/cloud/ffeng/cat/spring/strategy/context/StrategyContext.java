@@ -51,7 +51,7 @@ public class StrategyContext implements ApplicationContextAware {
                 return typeStrategyHandlerMap.get(type);
             }
         }
-        throw new RuntimeException("Cant get handler by biz: " + biz + ", type: " + type + ".");
+        throw new RuntimeException("Cannot get handler by biz: " + biz + ", type: " + type + ".");
     }
 
     public static void main(String[] args) {

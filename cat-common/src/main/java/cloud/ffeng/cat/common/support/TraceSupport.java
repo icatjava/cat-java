@@ -1,7 +1,6 @@
 package cloud.ffeng.cat.common.support;
 
-public class TraceContext {
-    public static final String TRANCE_ID = "traceId";
+public class TraceSupport {
 
     private static final ThreadLocal<String> TRACE_THREAD_LOCAL = new ThreadLocal<>();
 

@@ -1,7 +1,7 @@
 package cloud.ffeng.cat.common.result;
 
 import cloud.ffeng.cat.common.constants.ResultStatusConstants;
-import cloud.ffeng.cat.common.support.TraceContext;
+import cloud.ffeng.cat.common.support.TraceSupport;
 
 import java.util.List;
 
@@ -39,7 +39,7 @@ public class PageResult<T> extends Result<Page<T>> {
         pageResult.setStatus(ResultStatusConstants.SUCCESS.getStatus());
         pageResult.setCode(ResultStatusConstants.SUCCESS.getCode());
         pageResult.setMessage(ResultStatusConstants.SUCCESS.getMessage());
-        pageResult.setTraceId(TraceContext.getTraceId());
+        pageResult.setTraceId(TraceSupport.getTraceId());
         return pageResult;
     }
 

@@ -1,5 +1,6 @@
 package cloud.ffeng.cat.common.util;
 
+import java.util.Objects;
 import java.util.function.Supplier;
 
 /**
@@ -22,6 +23,21 @@ public final class FuncUtil {
             return supplier.get();
         }
         return null;
+    }
+
+    /**
+     * if obj is null, exec supplier and return T
+     *
+     * @param obj      obj
+     * @param supplier supplier
+     * @param <T>      data type
+     * @return T
+     */
+    public static <T> T nullGet(T obj, Supplier<T> supplier) {
+        if (Objects.isNull(obj)) {
+            return supplier.get();
+        }
+        return obj;
     }
 
     /**
